@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRA</title>
+    <script>
+        function showNextQuestion(currentQuestion) {
+            if (currentQuestion === 'age') {
+                document.getElementById('ageQuestion').style.display = 'none';
+                document.getElementById('weightQuestion').style.display = 'block';
+            } else if (currentQuestion === 'weight') {
+                document.getElementById('weightQuestion').style.display = 'none';
+                document.getElementById('heightQuestion').style.display = 'block';
+            } else if (currentQuestion === 'height') {
+                document.getElementById('heightQuestion').style.display = 'none';
+                document.getElementById('genderQuestion').style.display = 'block';
+            } else if (currentQuestion === 'gender') {
+                document.getElementById('genderQuestion').style.display = 'none';
+                document.getElementById('workProfileQuestion').style.display = 'block';
+            } else if (currentQuestion === 'workProfile') {
+                document.getElementById('workProfileQuestion').style.display = 'none';
+                document.getElementById('healthDisordersQuestion').style.display = 'block';
+            } else if (currentQuestion === 'healthDisorders') {
+                document.getElementById('healthDisordersQuestion').style.display = 'none';
+                if (document.getElementById('heartDisease').checked) {
+                    document.getElementById('heartDiseaseMedicationQuestion').style.display = 'block';
+                } else {
+                    document.getElementById('familyHistoryQuestion').style.display = 'block';
+                }
+            } else if (currentQuestion === 'heartDiseaseMedication') {
+                document.getElementById('heartDiseaseMedicationQuestion').style.display = 'none';
+                document.getElementById('familyHistoryQuestion').style.display = 'block';
+            }
+        }
+
+        function showPreviousQuestion(currentQuestion) {
+            if (currentQuestion === 'weight') {
+                document.getElementById('heightQuestion').style.display = 'none';
+                document.getElementById('weightQuestion').style.display = 'block';
+            } else if (currentQuestion === 'gender') {
+                document.getElementById('genderQuestion').style.display = 'none';
+                document.getElementById('heightQuestion').style.display = 'block';
+            } else if (currentQuestion === 'workProfile') {
+                document.getElementById('workProfileQuestion').style.display = 'none';
+                document.getElementById('genderQuestion').style.display = 'block';
+            } else if (currentQuestion === 'healthDisorders') {
+                document.getElementById('healthDisordersQuestion').style.display = 'none';
+                document.getElementById('workProfileQuestion').style.display = 'block';
+            } else if (currentQuestion === 'heartDiseaseMedication') {
+                document.getElementById('heartDiseaseMedicationQuestion').style.display = 'none';
+                document.getElementById('healthDisordersQuestion').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="ageQuestion">
+        <label for="age">What's your age?</label>
+        <input type="number" id="age" name="age">
+        <button onclick="showNextQuestion('age')">Next</button>
+    </div>
+    <div id="weightQuestion" style="display: none;">
+        <label for="weight">What's your weight?</label>
+        <input type="number" id="weight" name="weight">
+        <button onclick="showPreviousQuestion('weight')">Previous</button>
+        <button onclick="showNextQuestion('weight')">Next</button>
+    </div>
+    <div id="heightQuestion" style="display: none;">
+        <label for="height">What's your height?</label>
+        <input type="number" id="height" name="height">
+        <button onclick="showPreviousQuestion('height')">Previous</button>
+        <button onclick="showNextQuestion('height')">Next</button>
+    </div>
+    <div id="genderQuestion" style="display: none;">
+        <label for="gender">What's your gender?</label>
+        <input type="checkbox" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="checkbox" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="checkbox" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+        <button onclick="showPreviousQuestion('gender')">Previous</button>
+        <button onclick="showNextQuestion('gender')">Next</button>
+    </div>
+    <div id="workProfileQuestion" style="display: none;">
+        <label for="workProfile">Describe your work profile:</label>
+        <input type="checkbox" id="deskJob" name="workProfile" value="deskJob">
+        <label for="deskJob">Desk Job</label>
+        <input type="checkbox" id="travelling" name="workProfile" value="travelling">
+        <label for="travelling">Travelling</label>
+        <input type="checkbox" id="fieldWork" name="workProfile" value="fieldWork">
+        <label for="fieldWork">Field Work</label>
+        <button onclick="showPreviousQuestion('workProfile')">Previous</button>
+        <button onclick="showNextQuestion('workProfile')">Next</button>
+    </div>
+    <div id="healthDisordersQuestion" style="display: none;">
+        <label for="healthDisorders">Have you ever been told by a doctor that you have any of the following disorders?</label>
+        <input type="checkbox" id="heartDisease" name="healthDisorders" value="heartDisease">
+        <label for="heartDisease">Heart disease (heart attack, angina, bypass, atrial fibrillation or flutter, heart failure, heart valve disease or murmur)</label><br>
+        <input type="checkbox" id="vascularDisease" name="healthDisorders" value="vascularDisease">
+        <label for="vascularDisease">Vascular disease (PAD, PVD, aneurysm)</label><br>
+        <input type="checkbox" id="highBloodPressure" name="healthDisorders" value="highBloodPressure">
+        <label for="highBloodPressure">High blood pressure</label><br>
+        <input type="checkbox" id="borderlineHypertension" name="healthDisorders" value="borderlineHypertension">
+        <label for="borderlineHypertension">Borderline hypertension or pre-hypertension</label><br>
+        <input type="checkbox" id="highBloodCholesterol" name="healthDisorders" value="highBloodCholesterol">
+        <label for="highBloodCholesterol">High blood cholesterol</label><br>
+        <input type="checkbox" id="diabetes" name="healthDisorders" value="diabetes">
+        <label for="diabetes">Diabetes</label><br>
+        <input type="checkbox" id="elevatedBloodSugar" name="healthDisorders" value="elevatedBloodSugar">
+        <label for="elevatedBloodSugar">Elevated blood sugar</label><br>
+        <input type="checkbox" id="borderlineDiabetes" name="healthDisorders" value="borderlineDiabetes">
+        <label for="borderlineDiabetes">Borderline Diabetes, gestational Diabetes or pre-Diabetes</label><br>
+        <input type="checkbox" id="copd" name="healthDisorders" value="copd">
+        <label for="copd">Chronic obstructive pulmonary disease (COPD), emphysema or Chronic bronchitis or Asthma</label><br>
+        <input type="checkbox" id="arthritis" name="healthDisorders" value="arthritis">
+        <label for="arthritis">Arthritis, rheumatoid Arthritis, gout, lupus or fibromyalgia</label><br>
+        <input type="checkbox" id="depressiveDisorder" name="healthDisorders" value="depressiveDisorder">
+        <label for="depressiveDisorder">A depressive disorder (including depression, major depression, dysthymia or minor depression)</label><br>
+        <input type="checkbox" id="thyroidDisorders" name="healthDisorders" value="thyroidDisorders">
+        <label for="thyroidDisorders">Thyroid Disorders</label><br>
+        <input type="checkbox" id="none" name="healthDisorders" value="none">
+        <label for="none">None</label><br>
+        <button onclick="showPreviousQuestion('healthDisorders')">Previous</button>
+        <button onclick="showNextQuestion('healthDisorders')">Next</button>
+    </div>
+    <div id="heartDiseaseMedicationQuestion" style="display: none;">
+        <label for="heartDiseaseMedication">Are you currently taking medicine for any heart disease?</label>
+        <input type="radio" id="heartDiseaseMedicationYes" name="heartDiseaseMedication" value="yes">
+        <label for="heartDiseaseMedicationYes">Yes</label>
+        <input type="radio" id="heartDiseaseMedicationNo" name="heartDiseaseMedication" value="no">
+        <label for="heartDiseaseMedicationNo">No</label><br>
+        <button onclick="showPreviousQuestion('heartDiseaseMedication')">Previous</button>
+        <button onclick="showNextQuestion('heartDiseaseMedication')">Next</button>
+    </div>
+    <div id="familyHistoryQuestion" style="display: none;">
+        <!-- Add your family history question content here -->
+    </div>
+</body>
+
+</html>
